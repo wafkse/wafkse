@@ -10,6 +10,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 import httpx
+from fontTools.pens.boundsPen import BoundsPen
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.ttLib import TTFont
@@ -65,22 +66,28 @@ def load_nerd_font(tag: str) -> TTFont:
     return TTFont(target, recalcBBoxes=False, recalcTimestamp=False)
 
 
-def text_outline(text: str, font: TTFont) -> tuple[str, int]:
+def text_outline(
+    text: str, font: TTFont
+) -> tuple[str, int, tuple[float, float, float, float] | None]:
     glyph_set = font.getGlyphSet()
     cmap = font.getBestCmap()
     advance = font["hmtx"].metrics
-    pen = SVGPathPen(glyph_set)
+    path_pen = SVGPathPen(glyph_set)
+    bounds_pen = BoundsPen(glyph_set)
     offset = 0
 
     for char in text:
         name = cmap.get(ord(char))
         if name is None:
-            raise ValueError(f"JetBrains Mono has no glyph for {char!r}")
+            raise ValueError(f"Font has no glyph for {char!r}")
 
-        glyph_set[name].draw(TransformPen(pen, (1, 0, 0, 1, offset, 0)))
+        glyph = glyph_set[name]
+        transform = (1, 0, 0, 1, offset, 0)
+        glyph.draw(TransformPen(path_pen, transform))
+        glyph.draw(TransformPen(bounds_pen, transform))
         offset += advance[name][0]
 
-    return pen.getCommands(), offset
+    return path_pen.getCommands(), offset, bounds_pen.bounds
 
 
 def outline_svg(source: bytes, regular: TTFont, semibold: TTFont, symbols: TTFont | None = None) -> bytes:
@@ -93,23 +100,38 @@ def outline_svg(source: bytes, regular: TTFont, semibold: TTFont, symbols: TTFon
                 continue
 
             label = "".join(child.itertext())
-            if child.get("font-family") == "Symbols Nerd Font Mono":
+            is_icon = child.get("font-family") == "Symbols Nerd Font Mono"
+            if is_icon:
                 if symbols is None:
                     raise ValueError("Nerd Font glyph requested without a symbols font")
                 font = symbols
             else:
                 font = semibold if int(child.get("font-weight", "400")) >= 600 else regular
-            commands, advance = text_outline(label, font)
+
+            commands, advance, bounds = text_outline(label, font)
             scale = float(child.get("font-size", "16")) / font["head"].unitsPerEm
             x, y = float(child.get("x", "0")), float(child.get("y", "0"))
             anchor = child.get("text-anchor", "start")
 
-            if anchor == "end":
-                offset = -advance
-            elif anchor == "middle":
-                offset = -advance / 2
+            # Center icons by their visible contours, not the glyph advance.
+            # Preserve conventional text alignment for JetBrains Mono labels.
+            if is_icon and bounds is not None:
+                left, bottom, right, top = bounds
+                offset_y = -(bottom + top) / 2
+                if anchor == "end":
+                    offset = -right
+                elif anchor == "middle":
+                    offset = -(left + right) / 2
+                else:
+                    offset = -left
             else:
-                offset = 0
+                offset_y = 0
+                if anchor == "end":
+                    offset = -advance
+                elif anchor == "middle":
+                    offset = -advance / 2
+                else:
+                    offset = 0
 
             group = ET.Element(SVG_GROUP, {
                 "transform": f"translate({x:g} {y:g}) scale({scale:.8g} {-scale:.8g})",
@@ -119,7 +141,7 @@ def outline_svg(source: bytes, regular: TTFont, semibold: TTFont, symbols: TTFon
             if commands:
                 ET.SubElement(group, SVG_PATH, {
                     "d": commands,
-                    "transform": f"translate({offset:g} 0)",
+                    "transform": f"translate({offset:g} {offset_y:g})",
                 })
 
             index = list(parent).index(child)

@@ -63,9 +63,31 @@ class SvgFontTest(unittest.TestCase):
             outline_svg(source, Font(), Font())
 
         result = outline_svg(source, Font(), Font(), Symbols())
-        self.assertIn(b"<path ", result)
+        root = ET.fromstring(result)
+        group = root.find(".//{http://www.w3.org/2000/svg}g")
+        path = root.find(".//{http://www.w3.org/2000/svg}path")
+
+        self.assertIsNotNone(group)
+        self.assertIsNotNone(path)
+        # The fake icon occupies x=0..400 but advances by 600 units.
+        # Its horizontal center is 200, not the advance midpoint (300).
+        self.assertEqual(group.get("transform"), "translate(100 40) scale(0.048 -0.048)")
+        self.assertEqual(path.get("transform"), "translate(-200 -250)")
         self.assertNotIn(b"<text ", result)
 
+
+    def test_text_middle_anchor_uses_advance_not_ink_bounds(self):
+        source = (
+            b'<svg xmlns="http://www.w3.org/2000/svg">'
+            b'<text x="100" y="40" font-size="20" '
+            b'text-anchor="middle">aa</text></svg>'
+        )
+        result = outline_svg(source, Font(), Font())
+        root = ET.fromstring(result)
+        path = root.find(".//{http://www.w3.org/2000/svg}path")
+
+        self.assertIsNotNone(path)
+        self.assertEqual(path.get("transform"), "translate(-600 0)")
 
     def test_missing_glyph_is_rejected(self):
         with self.assertRaises(ValueError):
