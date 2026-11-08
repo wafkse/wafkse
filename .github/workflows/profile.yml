@@ -28,7 +28,7 @@ jobs:
         id: mirage
         with:
           path: ~/.cargo/bin/mirage
-          key: ${{ runner.os }}-mirage-${{ hashFiles('.mirage-version') }}
+          key: ${{ runner.os }}-mirage-${{ hashFiles('.mirage.tag') }}
       - name: Install Mirage release
         if: steps.mirage.outputs.cache-hit != 'true'
         run: just install-mirage
