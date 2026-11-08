@@ -1,4 +1,3 @@
 [default.profile]
-handle = "wafkse"
-description = "I build systems software, mostly in Rust."
-website = "https://wafkse.dev"
+username = "wafkse"
+counter_theme = "rule34"

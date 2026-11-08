@@ -3,6 +3,10 @@ template = "."
 undefined = "strict"
 
 [[candidate]]
+path = "config/profile.toml"
+policy = "override"
+
+[[candidate]]
 path = "config/palette.toml"
 policy = "override"
 
