@@ -55,7 +55,7 @@ class SvgFontTest(unittest.TestCase):
         source = (
             '<svg xmlns="http://www.w3.org/2000/svg">'
             '<text x="100" y="40" font-size="48" '
-            'font-family="Symbols Nerd Font Mono">&#xE7A8;</text>'
+            'font-family="Symbols Nerd Font Mono" text-anchor="middle">&#xE7A8;</text>'
             '</svg>'
         ).encode("utf-8")
 
