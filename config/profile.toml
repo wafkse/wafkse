@@ -1,6 +1,30 @@
 [default.profile]
 username = "wafkse"
-counter_theme = "rule34"
-counter_scale = 2
-counter_width = 680
+counter-theme = "rule34"
+counter-scale = 2
+counter-width = 680
 website = "wafkse.dev"
+
+[[default.profile.known-language]]
+name = "Rust"
+label = "rs"
+
+[[default.profile.known-language]]
+name = "C"
+label = "C"
+
+[[default.profile.known-language]]
+name = "C++"
+label = "C++"
+
+[[default.profile.known-language]]
+name = "Lua / Luau"
+label = "lua"
+
+[[default.profile.known-language]]
+name = "TypeScript"
+label = "TS"
+
+[[default.profile.known-language]]
+name = "Python"
+label = "py"

@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tool"))
 from metric import (
     CommitAuthor, CommitBody, CommitRecord, GitHubClient,
     MetricRecord, RepositoryRecord, collect_metric, normalize_hour,
-    normalize_language, serialize_metric,
+    serialize_metric,
 )
 
 
@@ -32,26 +32,21 @@ class MetricTest(unittest.TestCase):
         self.assertEqual(target_hour[0][0], 4)
         self.assertEqual(target_hour[6][23], 4)
 
-    def test_language_uses_aggregate_byte_count(self):
-        from collections import Counter
-
-        target_language = normalize_language(Counter({"Rust": 90, "C": 10}))
-        self.assertEqual(target_language[0].share, "90.0%")
-        self.assertEqual(sum(value.width for value in target_language), 900)
-
     def test_serialization_round_trip(self):
-        from collections import Counter
-
         target_metric = MetricRecord(
             as_of=date(2026, 11, 8),
             since=date(2026, 8, 10),
             commit_count=2,
             repository_count=1,
             hour=[[0] * 24 for _ in range(7)],
-            language=normalize_language(Counter({"Rust": 90})),
         )
         target_document = tomlkit.parse(serialize_metric(target_metric))
-        restored = MetricRecord.model_validate(target_document["default"]["metric"].unwrap())
+        content = target_document["default"]["metric"].unwrap()
+        self.assertEqual(content["commit-count"], 2)
+        self.assertEqual(content["repository-count"], 1)
+        self.assertEqual(content["as-of"], "2026-11-08")
+        self.assertNotIn("commit_count", content)
+        restored = MetricRecord.model_validate(content)
 
         self.assertEqual(restored, target_metric)
 
@@ -67,9 +62,6 @@ class MetricTest(unittest.TestCase):
                     {"name": "example", "default_branch": "development", "fork": False, "archived": False, "private": False},
                     {"name": "forked", "default_branch": "main", "fork": True, "archived": False, "private": False},
                 ])
-
-            if path == "/repos/wafkse/example/languages":
-                return httpx.Response(200, json={"Rust": 50, "C": 10})
 
             if path == "/repos/wafkse/example/commits":
                 return httpx.Response(200, json=[
@@ -87,6 +79,7 @@ class MetricTest(unittest.TestCase):
         self.assertEqual(target_metric.repository_count, 1)
         self.assertEqual(target_metric.commit_count, 1)
         self.assertTrue(any("sha=development" in url for url in target_request))
+        self.assertFalse(any(url.endswith("/languages") for url in target_request))
 
 
 if __name__ == "__main__":

@@ -1,54 +1,6 @@
 [default.metric]
-as_of = "2026-11-08"
+as-of = "2026-11-08"
 since = "2026-08-10"
-commit_count = 545
-repository_count = 11
+commit-count = 545
+repository-count = 11
 hour = [[3, 3, 2, 0, 1, 0, 1, 0, 1, 0, 0, 1, 3, 3, 0, 2, 4, 3, 0, 2, 2, 2, 4, 2], [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 3, 2, 2, 2, 0, 1], [0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 1, 2, 2, 3, 2, 3, 2], [1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 3, 3, 2, 2, 2, 0], [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 3, 2, 2], [0, 3, 1, 0, 0, 1, 1, 0, 0, 1, 2, 0, 2, 3, 2, 1, 2, 3, 2, 0, 2, 2, 0, 1], [3, 4, 3, 1, 0, 0, 0, 1, 0, 0, 2, 1, 2, 2, 1, 0, 3, 3, 0, 3, 0, 2, 3, 2]]
-
-[[default.metric.language]]
-name = "Rust"
-share = "91.4%"
-x = 30
-width = 823
-legend_x = 30
-color_index = 0
-
-[[default.metric.language]]
-name = "C"
-share = "7.3%"
-x = 853
-width = 66
-legend_x = 184
-color_index = 1
-
-[[default.metric.language]]
-name = "Jinja"
-share = "0.5%"
-x = 919
-width = 5
-legend_x = 338
-color_index = 2
-
-[[default.metric.language]]
-name = "Just"
-share = "0.2%"
-x = 924
-width = 2
-legend_x = 492
-color_index = 3
-
-[[default.metric.language]]
-name = "Assembly"
-share = "0.1%"
-x = 926
-width = 1
-legend_x = 646
-color_index = 4
-
-[[default.metric.language]]
-name = "Other"
-share = "0.4%"
-x = 927
-width = 3
-legend_x = 800
-color_index = 5

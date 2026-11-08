@@ -13,8 +13,8 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/source-mocha.svg">
-  <img src="./assets/source-latte.svg" width="100%" alt="GitHub Linguist language byte proportions across public repositories">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/language-mocha.svg">
+  <img src="./assets/language-latte.svg" width="100%" alt="Known languages: Rust, C, C++, Lua / Luau, TypeScript, Python">
 </picture>
 
 <p align="center">

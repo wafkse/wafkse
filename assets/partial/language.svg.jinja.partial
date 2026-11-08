@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="184" viewBox="0 0 960 184" role="img" aria-labelledby="title description">
+<title id="title">Known languages</title>
+<desc id="description">A curated selection of languages used in my work.</desc>
+<rect x=".5" y=".5" width="959" height="183" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
+<path d="M4 5V179" stroke="{{ color.accent }}" stroke-width="4"/>
+<text x="30" y="36" font-family="monospace" font-size="17" fill="{{ color.text }}">Known languages</text>
+<text x="928" y="36" font-family="monospace" font-size="12" text-anchor="end" fill="{{ color.muted }}">curated</text>
+{% for item in profile["known-language"] %}
+{% set x = 30 + loop.index0 * 152 %}
+<rect x="{{ x }}" y="62" width="138" height="92" rx="4" fill="{{ color.background }}" stroke="{{ color.surface }}" stroke-opacity=".65"/>
+<text x="{{ x + 16 }}" y="102" font-family="monospace" font-size="26" font-weight="600" fill="{{ color.tone[loop.index0] }}">{{ item.label|e }}</text>
+<text x="{{ x + 16 }}" y="137" font-family="monospace" font-size="15" fill="{{ color.text }}">{{ item.name|e }}</text>
+{% endfor %}
+</svg>

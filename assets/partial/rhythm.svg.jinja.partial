@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="318" viewBox="0 0 960 318" role="img" aria-labelledby="title desc">
 <title id="title">Commit rhythm</title>
-<desc id="desc">Authored commits by weekday and UTC hour over the last 90 days. {{ metric.commit_count }} commits in {{ metric.repository_count }} public repositories.</desc>
+<desc id="desc">Authored commits by weekday and UTC hour over the last 90 days. {{ metric["commit-count"] }} commits in {{ metric["repository-count"] }} public repositories.</desc>
 <rect x=".5" y=".5" width="959" height="317" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
 <path d="M4 5V313" stroke="{{ color.accent }}" stroke-width="4"/>
 <text x="30" y="37" font-family="monospace" font-size="17" fill="{{ color.text }}">Commit rhythm</text>
@@ -18,5 +18,5 @@
 {% for hour in [0, 6, 12, 18, 23] %}
 <text x="{{ 185 + hour * 29 }}" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="{{ color.muted }}">{{ "%02d"|format(hour) }}</text>
 {% endfor %}
-<text x="31" y="300" font-family="monospace" font-size="12" fill="{{ color.muted }}">{{ metric.commit_count }} commits</text>
+<text x="31" y="300" font-family="monospace" font-size="12" fill="{{ color.muted }}">{{ metric["commit-count"] }} commits</text>
 </svg>

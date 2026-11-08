@@ -17,7 +17,7 @@ test:
 
 # Verify committed rendered outputs.
 check: test build
-    git diff --exit-code -- README.md assets/rhythm-mocha.svg assets/rhythm-latte.svg assets/source-mocha.svg assets/source-latte.svg assets/website-mocha.svg assets/website-latte.svg
+    git diff --exit-code -- README.md assets/rhythm-mocha.svg assets/rhythm-latte.svg assets/language-mocha.svg assets/language-latte.svg assets/website-mocha.svg assets/website-latte.svg
 
 # Collect public repository metrics, then rebuild the README artwork.
 refresh: test
