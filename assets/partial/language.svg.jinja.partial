@@ -1,12 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="156" viewBox="0 0 960 156" role="img" aria-labelledby="title description">
+{% set columns = 6 %}
+{% set rows = ((profile["known-language"] | length) + columns - 1) // columns %}
+{% set height = 68 + rows * 86 %}
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="{{ height }}" viewBox="0 0 960 {{ height }}" role="img" aria-labelledby="title description">
 <title id="title">Known languages</title>
-<desc id="description">Language marks for Rust, C, C++, Lua / Luau, TypeScript, and Python.</desc>
-<rect x=".5" y=".5" width="959" height="155" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
-<path d="M4 5V151" stroke="{{ color.accent }}" stroke-width="4"/>
+<desc id="description">Rust, C, C++, Lua, TypeScript, Python, Bash, JavaScript, Java, C sharp, and PHP.</desc>
+<rect x=".5" y=".5" width="959" height="{{ height - 1 }}" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
+<path d="M4 5V{{ height - 5 }}" stroke="{{ color.accent }}" stroke-width="4"/>
 <text x="30" y="36" font-family="JetBrains Mono, monospace" font-size="17" fill="{{ color.text }}">Known languages</text>
 {% for item in profile["known-language"] %}
-{% set x = 30 + loop.index0 * 152 %}
-<rect x="{{ x }}" y="58" width="138" height="72" rx="4" fill="{{ color.background }}" stroke="{{ color.surface }}" stroke-opacity=".65"/>
-<text x="{{ x + 69 }}" y="94" font-family="Symbols Nerd Font Mono" font-size="48" text-anchor="middle" fill="{{ color.tone[loop.index0] }}">{{ item.glyph|e }}</text>
+{% set row = loop.index0 // columns %}
+{% set column = loop.index0 % columns %}
+{% set remaining = (profile["known-language"] | length) - row * columns %}
+{% set row_size = columns if remaining >= columns else remaining %}
+{% set x = 30 + ((columns - row_size) * 152) // 2 + column * 152 %}
+{% set y = 58 + row * 86 %}
+<rect x="{{ x }}" y="{{ y }}" width="138" height="72" rx="4" fill="{{ color.background }}" stroke="{{ color.surface }}" stroke-opacity=".65"/>
+<text x="{{ x + 69 }}" y="{{ y + 36 }}" font-family="Symbols Nerd Font Mono" font-size="48" text-anchor="middle" fill="{{ color.tone[column] }}">{{ item.glyph|e }}</text>
 {% endfor %}
 </svg>

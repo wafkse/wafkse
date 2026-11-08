@@ -22,3 +22,18 @@ glyph = "\uE8CA" # nf-dev-typescript
 
 [[default.profile.known-language]]
 glyph = "\uE73C" # nf-dev-python
+
+[[default.profile.known-language]]
+glyph = "\uE760" # nf-dev-bash
+
+[[default.profile.known-language]]
+glyph = "\uE781" # nf-dev-javascript
+
+[[default.profile.known-language]]
+glyph = "\uE738" # nf-dev-java
+
+[[default.profile.known-language]]
+glyph = "\uE7B2" # nf-dev-csharp
+
+[[default.profile.known-language]]
+glyph = "\uE73D" # nf-dev-php
