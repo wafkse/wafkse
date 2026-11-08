@@ -1,33 +1,48 @@
+
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="176" viewBox="0 0 960 176" role="img" aria-labelledby="title desc">
 <title id="title">Source footprint</title>
-<desc id="desc">Relative source-language byte counts across 8 public repositories.</desc>
+<desc id="desc">Relative source-language byte counts across 11 public repositories.</desc>
 <rect x=".5" y=".5" width="959" height="175" rx="4" fill="#e6e9ef" stroke="#bcc0cc" stroke-opacity=".55"/>
 <path d="M4 5V171" stroke="#8839ef" stroke-width="4"/>
 <text x="30" y="36" font-family="monospace" font-size="17" fill="#4c4f69">Source footprint</text>
-<text x="928" y="36" text-anchor="end" font-family="monospace" font-size="12" fill="#6c6f85">8 public repos / source bytes</text>
+<text x="928" y="36" text-anchor="end" font-family="monospace" font-size="12" fill="#6c6f85">11 public repos / source bytes</text>
 <rect x="30" y="68" width="900" height="27" rx="2" fill="#bcc0cc" opacity=".45"/>
-<rect x="30" y="68" width="822" height="27" fill="#fe640b"/>
-<rect x="852" y="68" width="74" height="27" fill="#179299"/>
-<rect x="926" y="68" width="1" height="27" fill="#8839ef"/>
-<rect x="927" y="68" width="1" height="27" fill="#1e66f5"/>
-<rect x="928" y="68" width="1" height="27" fill="#40a02b"/>
-<rect x="929" y="68" width="1" height="27" fill="#df8e1d"/>
+
+<rect x="30" y="68" width="823" height="27" fill="#fe640b"/>
+
+<rect x="853" y="68" width="66" height="27" fill="#179299"/>
+
+<rect x="919" y="68" width="5" height="27" fill="#8839ef"/>
+
+<rect x="924" y="68" width="2" height="27" fill="#1e66f5"/>
+
+<rect x="926" y="68" width="1" height="27" fill="#40a02b"/>
+
+<rect x="927" y="68" width="3" height="27" fill="#df8e1d"/>
+
+
 <rect x="30" y="123" width="10" height="10" fill="#fe640b"/>
 <text x="46" y="132" font-family="monospace" font-size="12" fill="#4c4f69">Rust</text>
 <text x="46" y="151" font-family="monospace" font-size="12" fill="#6c6f85">91.4%</text>
+
 <rect x="184" y="123" width="10" height="10" fill="#179299"/>
 <text x="200" y="132" font-family="monospace" font-size="12" fill="#4c4f69">C</text>
-<text x="200" y="151" font-family="monospace" font-size="12" fill="#6c6f85">8.2%</text>
+<text x="200" y="151" font-family="monospace" font-size="12" fill="#6c6f85">7.3%</text>
+
 <rect x="338" y="123" width="10" height="10" fill="#8839ef"/>
-<text x="354" y="132" font-family="monospace" font-size="12" fill="#4c4f69">Lua</text>
-<text x="354" y="151" font-family="monospace" font-size="12" fill="#6c6f85">0.1%</text>
+<text x="354" y="132" font-family="monospace" font-size="12" fill="#4c4f69">Jinja</text>
+<text x="354" y="151" font-family="monospace" font-size="12" fill="#6c6f85">0.5%</text>
+
 <rect x="492" y="123" width="10" height="10" fill="#1e66f5"/>
-<text x="508" y="132" font-family="monospace" font-size="12" fill="#4c4f69">Python</text>
-<text x="508" y="151" font-family="monospace" font-size="12" fill="#6c6f85">0.1%</text>
+<text x="508" y="132" font-family="monospace" font-size="12" fill="#4c4f69">Just</text>
+<text x="508" y="151" font-family="monospace" font-size="12" fill="#6c6f85">0.2%</text>
+
 <rect x="646" y="123" width="10" height="10" fill="#40a02b"/>
-<text x="662" y="132" font-family="monospace" font-size="12" fill="#4c4f69">Shell</text>
+<text x="662" y="132" font-family="monospace" font-size="12" fill="#4c4f69">Assembly</text>
 <text x="662" y="151" font-family="monospace" font-size="12" fill="#6c6f85">0.1%</text>
+
 <rect x="800" y="123" width="10" height="10" fill="#df8e1d"/>
-<text x="816" y="132" font-family="monospace" font-size="12" fill="#4c4f69">C++</text>
-<text x="816" y="151" font-family="monospace" font-size="12" fill="#6c6f85">0.0%</text>
+<text x="816" y="132" font-family="monospace" font-size="12" fill="#4c4f69">Other</text>
+<text x="816" y="151" font-family="monospace" font-size="12" fill="#6c6f85">0.4%</text>
+
 </svg>
