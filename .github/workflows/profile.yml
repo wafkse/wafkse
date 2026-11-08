@@ -18,13 +18,13 @@ jobs:
   update:
     runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@v10.3.3
         with:
           enable-cache: true
           python-version: '3.12'
       - uses: extractions/setup-just@v4
-      - uses: actions/cache@v6
+      - uses: actions/cache@v6.1.0
         id: mirage
         with:
           path: ~/.cargo/bin/mirage
