@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="278" viewBox="0 0 960 278" role="img" aria-labelledby="title desc">
+<title id="title">Commit rhythm</title>
+<desc id="desc">Commits grouped by day of week and UTC hour over 90 days. Intensity reflects count. {{ metrics.commit_count }} authored commits across {{ metrics.repo_count }} repositories.</desc>
+<rect x=".5" y=".5" width="959" height="277" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
+<path d="M4 5V273" stroke="{{ color.accent }}" stroke-width="4"/>
+<text x="30" y="37" font-family="monospace" font-size="17" fill="{{ color.text }}" letter-spacing=".3">Commit rhythm</text>
+<text x="926" y="36" text-anchor="end" font-family="monospace" font-size="12" fill="{{ color.muted }}">UTC / 90 days</text>
+{% for day in ["MON","TUE","WED","THU","FRI","SAT","SUN"] %}
+<text x="31" y="{{ 80 + loop.index0 * 25 }}" font-family="monospace" font-size="13" fill="{{ color.muted }}">{{ day }}</text>
+{% endfor %}
+{% for cell in metrics.cells %}
+<rect x="{{ cell.x }}" y="{{ cell.y }}" width="21" height="17" rx="2" fill="{% if cell.active %}{{ color.accent }}{% else %}{{ color.surface }}{% endif %}" opacity="{{ cell.opacity }}"/>
+{% endfor %}
+{% for hour in [0,6,12,18,23] %}
+<text x="{{ 184 + hour * 30 }}" y="261" text-anchor="middle" font-family="monospace" font-size="12" fill="{{ color.muted }}">{{ "%02d"|format(hour) }}</text>
+{% endfor %}
+<text x="31" y="260" font-family="monospace" font-size="12" fill="{{ color.muted }}">{{ metrics.commit_count }} commits</text>
+</svg>

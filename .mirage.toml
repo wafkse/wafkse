@@ -3,5 +3,9 @@ template = "."
 undefined = "strict"
 
 [[candidate]]
-path = "config/profile.toml"
+path = "config/palette.toml"
+policy = "override"
+
+[[candidate]]
+path = "config/metrics.toml"
 policy = "override"
