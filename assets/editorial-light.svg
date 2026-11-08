@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="260" viewBox="0 0 960 260" role="img" aria-labelledby="title description">
+  <title id="title">Software. Close to the metal.</title>
+  <desc id="description">Writing on systems engineering, language design, and security.</desc>
+  <defs>
+    <radialGradient id="accent" cx="82%" cy="47%" r="72%">
+      <stop stop-color="#8839ef" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#8839ef" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x=".5" y=".5" width="959" height="259" rx="4" fill="#e6e9ef" stroke="#bcc0cc" stroke-opacity=".65"/>
+  <rect x="4" y="4" width="4" height="252" rx="1" fill="#8839ef"/>
+  <rect x="8" y="2" width="949" height="256" fill="url(#accent)"/>
+  <text x="42" y="95" fill="#4c4f69" font-family="monospace" font-size="61" font-weight="400" letter-spacing="-.8">Software.</text>
+  <text x="42" y="166" fill="#8839ef" font-family="monospace" font-size="60" font-weight="400" letter-spacing="-1.8">Close to the metal.</text>
+  <text x="44" y="220" fill="#6c6f85" font-family="Georgia,serif" font-size="22">Writing on systems engineering, language design, and security.</text>
+  <path d="M42 237H918" stroke="#bcc0cc" stroke-opacity=".5"/>
+</svg>

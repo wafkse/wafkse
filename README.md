@@ -1,25 +1,20 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
-  <img src="./assets/banner-light.svg" width="100%" alt="wafkse — Software, close to the metal.">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/editorial-dark.svg">
+  <img src="./assets/editorial-light.svg" alt="Software. Close to the metal. Writing on systems engineering, language design, and security." width="100%">
 </picture>
 
 <p align="center">
-  <a href="https://wafkse.dev">website</a> ·
-  <a href="https://github.com/wafkse?tab=repositories">repositories</a> ·
-  <a href="https://wafkse.dev/atom.xml">writing / atom</a>
+  <a href="https://wafkse.dev">Website</a> ·
+  <a href="https://wafkse.dev/blog/">Articles</a> ·
+  <a href="https://wafkse.dev/about/">About</a> ·
+  <a href="https://wafkse.dev/atom.xml">Atom</a>
 </p>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/signal-dark.svg">
-  <img src="./assets/signal-light.svg" width="100%" alt="GitHub contribution signal for the past 52 weeks">
-</picture>
 
 
 
 <details>
-  <summary>How this page is made</summary>
+  <summary>Colophon</summary>
 
-  The README and SVGs are rendered from TOML and MiniJinja templates with [Mirage](https://github.com/wafkse/mirage). A small Python collector produces the public activity signal and pulls writing from the Atom feed. [Just](./Justfile) runs local builds; [GitHub Actions](./.github/workflows/profile.yml) verifies reproducibility and refreshes the published result. No external image services or JavaScript.
+  Built from TOML and MiniJinja using [Mirage](https://github.com/wafkse/mirage). [Just](./Justfile) orchestrates the local build; [Actions](./.github/workflows/profile.yml) keeps the latest writing synchronized. No external profile-card services.
 
-  [Templates](./README.md.jinja) · [Data](./config/) · [Generator](./tool/snapshot.py)
 </details>
