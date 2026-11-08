@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="68" viewBox="0 0 340 68" role="img" aria-labelledby="title">
+  <title id="title">wafkse.dev</title>
+  <rect x=".5" y=".5" width="339" height="67" rx="4" fill="#e6e9ef" stroke="#bcc0cc" stroke-opacity=".55"/>
+  <path d="M3 5V63" stroke="#8839ef" stroke-width="4"/>
+  <text x="22" y="43" fill="#4c4f69" font-family="ui-monospace, monospace" font-size="23" font-weight="500">wafkse.dev</text>
+  <path d="M293 45L318 20M302 20H318V36" fill="none" stroke="#8839ef" stroke-width="2.5" stroke-linecap="square"/>
+</svg>
