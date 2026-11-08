@@ -9,11 +9,5 @@
 </picture>
 
 <p align="center">
-  <img align="left" src="./assets/meiling.gif" width="310" alt="Hong Meiling pixel-art animation">
-  <img align="right" src="./assets/aya.gif" width="310" alt="Aya Shameimaru pixel-art animation">
-  <br clear="all">
-</p>
-
-<p align="center">
   <img src="https://count.getloli.com/@wafkse.github?name=wafkse.github&amp;theme=rule34&amp;padding=7&amp;offset=0&amp;align=center&amp;scale=5&amp;pixelated=1&amp;darkmode=auto" alt="Profile visit counter">
 </p>
