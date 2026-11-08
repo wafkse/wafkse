@@ -18,7 +18,10 @@ import tomlkit
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 TARGET_PATH = PROJECT_ROOT / "config" / "metric.toml"
 
-GITHUB_OWNER = os.getenv("GITHUB_REPOSITORY_OWNER", "wafkse")
+PROFILE_PATH = PROJECT_ROOT / "config" / "profile.toml"
+GITHUB_OWNER = os.getenv("GITHUB_REPOSITORY_OWNER") or str(
+    tomlkit.parse(PROFILE_PATH.read_text(encoding="utf-8"))["default"]["profile"]["username"]
+)
 GITHUB_API_URL = os.getenv("GITHUB_API_URL", "https://api.github.com")
 ACTIVITY_PERIOD = timedelta(days=90)
 
