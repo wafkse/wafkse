@@ -16,8 +16,10 @@ from fontTools.ttLib import TTFont
 
 ROOT = Path(__file__).resolve().parents[1]
 FONT_TAG = ROOT / ".font.tag"
+NERD_FONT_TAG = ROOT / ".nerd-font.tag"
 FONT_CACHE = Path.home() / ".cache" / "wafkse-profile" / "font"
 FONT_SOURCE = "https://raw.githubusercontent.com/JetBrains/JetBrainsMono"
+NERD_FONT_SOURCE = "https://raw.githubusercontent.com/ryanoasis/nerd-fonts"
 FONT_STYLE = {"regular": "Regular", "semibold": "SemiBold"}
 SVG_NS = "http://www.w3.org/2000/svg"
 SVG_TEXT = f"{{{SVG_NS}}}text"
@@ -31,6 +33,27 @@ def load_font(style: str, tag: str) -> TTFont:
 
     if not target.is_file():
         url = f"{FONT_SOURCE}/{tag}/fonts/ttf/{name}"
+        response = httpx.get(url, timeout=30, follow_redirects=True)
+        response.raise_for_status()
+
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.with_suffix(".tmp")
+        temporary.write_bytes(response.content)
+        temporary.replace(target)
+
+    return TTFont(target, recalcBBoxes=False, recalcTimestamp=False)
+
+
+
+def load_nerd_font(tag: str) -> TTFont:
+    name = "SymbolsNerdFontMono-Regular.ttf"
+    target = FONT_CACHE / "nerd-fonts" / tag / name
+
+    if not target.is_file():
+        url = (
+            f"{NERD_FONT_SOURCE}/{tag}/patched-fonts/"
+            f"NerdFontsSymbolsOnly/{name}"
+        )
         response = httpx.get(url, timeout=30, follow_redirects=True)
         response.raise_for_status()
 
@@ -60,7 +83,7 @@ def text_outline(text: str, font: TTFont) -> tuple[str, int]:
     return pen.getCommands(), offset
 
 
-def outline_svg(source: bytes, regular: TTFont, semibold: TTFont) -> bytes:
+def outline_svg(source: bytes, regular: TTFont, semibold: TTFont, symbols: TTFont | None = None) -> bytes:
     ET.register_namespace("", SVG_NS)
     root = ET.fromstring(source)
 
@@ -70,7 +93,12 @@ def outline_svg(source: bytes, regular: TTFont, semibold: TTFont) -> bytes:
                 continue
 
             label = "".join(child.itertext())
-            font = semibold if int(child.get("font-weight", "400")) >= 600 else regular
+            if child.get("font-family") == "Symbols Nerd Font Mono":
+                if symbols is None:
+                    raise ValueError("Nerd Font glyph requested without a symbols font")
+                font = symbols
+            else:
+                font = semibold if int(child.get("font-weight", "400")) >= 600 else regular
             commands, advance = text_outline(label, font)
             scale = float(child.get("font-size", "16")) / font["head"].unitsPerEm
             x, y = float(child.get("x", "0")), float(child.get("y", "0"))
@@ -106,12 +134,17 @@ def main() -> None:
     if not tag.startswith("v") or not tag[1:].replace(".", "").isdigit():
         raise ValueError("Invalid JetBrains Mono release tag")
 
+    nerd_tag = NERD_FONT_TAG.read_text(encoding="utf-8").strip()
+    if not nerd_tag.startswith("v") or not nerd_tag[1:].replace(".", "").isdigit():
+        raise ValueError("Invalid Nerd Fonts release tag")
+
     regular = load_font("regular", tag)
     semibold = load_font("semibold", tag)
+    symbols = load_nerd_font(nerd_tag)
 
     for target in sorted((ROOT / "assets").glob("*.svg")):
         source = target.read_bytes()
-        result = outline_svg(source, regular, semibold)
+        result = outline_svg(source, regular, semibold, symbols)
 
         if result != source:
             target.write_bytes(result)

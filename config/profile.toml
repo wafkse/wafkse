@@ -6,19 +6,19 @@ counter-width = 680
 website = "wafkse.dev"
 
 [[default.profile.known-language]]
-label = "rs"
+glyph = "\uE7A8" # nf-dev-rust
 
 [[default.profile.known-language]]
-label = "C"
+glyph = "\uE771" # nf-dev-c
 
 [[default.profile.known-language]]
-label = "C++"
+glyph = "\uE7A3" # nf-dev-cplusplus
 
 [[default.profile.known-language]]
-label = "lua"
+glyph = "\uE826" # nf-dev-lua
 
 [[default.profile.known-language]]
-label = "TS"
+glyph = "\uE8CA" # nf-dev-typescript
 
 [[default.profile.known-language]]
-label = "py"
+glyph = "\uE73C" # nf-dev-python

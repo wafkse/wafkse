@@ -47,6 +47,26 @@ class SvgFontTest(unittest.TestCase):
         self.assertNotIn(b"<text ", result)
         self.assertIn(b'fill="#fff"', result)
 
+    def test_nerd_font_glyph_is_selected_by_family(self):
+        class Symbols(Font):
+            def getBestCmap(self):
+                return {0xE7A8: "a"}
+
+        source = (
+            '<svg xmlns="http://www.w3.org/2000/svg">'
+            '<text x="100" y="40" font-size="48" '
+            'font-family="Symbols Nerd Font Mono">&#xE7A8;</text>'
+            '</svg>'
+        ).encode("utf-8")
+
+        with self.assertRaises(ValueError):
+            outline_svg(source, Font(), Font())
+
+        result = outline_svg(source, Font(), Font(), Symbols())
+        self.assertIn(b"<path ", result)
+        self.assertNotIn(b"<text ", result)
+
+
     def test_missing_glyph_is_rejected(self):
         with self.assertRaises(ValueError):
             text_outline("b", Font())

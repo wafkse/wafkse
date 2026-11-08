@@ -7,6 +7,6 @@
 {% for item in profile["known-language"] %}
 {% set x = 30 + loop.index0 * 152 %}
 <rect x="{{ x }}" y="58" width="138" height="72" rx="4" fill="{{ color.background }}" stroke="{{ color.surface }}" stroke-opacity=".65"/>
-<text x="{{ x + 69 }}" y="104" font-family="JetBrains Mono, monospace" font-size="30" text-anchor="middle" font-weight="600" fill="{{ color.tone[loop.index0] }}">{{ item.label|e }}</text>
+<text x="{{ x + 69 }}" y="112" font-family="Symbols Nerd Font Mono" font-size="48" text-anchor="middle" fill="{{ color.tone[loop.index0] }}">{{ item.glyph|e }}</text>
 {% endfor %}
 </svg>
