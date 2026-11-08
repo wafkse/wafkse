@@ -9,5 +9,5 @@
 </picture>
 
 <p align="center">
-  <img src="https://count.getloli.com/@wafkse.github?name=wafkse.github&amp;theme=rule34&amp;padding=7&amp;offset=0&amp;align=center&amp;scale=5&amp;pixelated=1&amp;darkmode=auto" alt="Profile visit counter">
+  <img src="https://count.getloli.com/@wafkse.github?name=wafkse.github&amp;theme=rule34&amp;padding=7&amp;offset=0&amp;align=center&amp;scale=2&amp;pixelated=1&amp;darkmode=auto" width="680" alt="Profile visit counter">
 </p>
