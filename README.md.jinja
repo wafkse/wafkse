@@ -1,20 +1,5 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/editorial-dark.svg">
-  <img src="./assets/editorial-light.svg" alt="{{ profile.primary }} {{ profile.secondary }} {{ profile.description }}" width="100%">
-</picture>
+### Hey, I'm {{ profile.handle }}.
 
-<p align="center">
-  <a href="{{ profile.website }}">Website</a> ·
-  <a href="{{ profile.articles }}">Articles</a> ·
-  <a href="{{ profile.about }}">About</a> ·
-  <a href="{{ profile.feed }}">Atom</a>
-</p>
+{{ profile.description }}
 
-{{ writing.markdown }}
-
-<details>
-  <summary>Colophon</summary>
-
-  Built from TOML and MiniJinja using [Mirage](https://github.com/wafkse/mirage). [Just](./Justfile) orchestrates the local build; [Actions](./.github/workflows/profile.yml) keeps the latest writing synchronized. No external profile-card services.
-
-</details>
+[Website]({{ profile.website }})

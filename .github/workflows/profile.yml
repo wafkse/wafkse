@@ -1,0 +1,25 @@
+name: Profile
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: extractions/setup-just@v3
+      - uses: actions/cache@v4
+        id: mirage
+        with:
+          path: ~/.cargo/bin/mirage
+          key: ${{ runner.os }}-mirage-a6b7d7cecbebe229803fd181ea612f7f8e19968b
+      - name: Install pinned Mirage
+        if: steps.mirage.outputs.cache-hit != 'true'
+        run: cargo install --locked --git https://github.com/wafkse/mirage --rev a6b7d7cecbebe229803fd181ea612f7f8e19968b --package mirage
+      - run: just check

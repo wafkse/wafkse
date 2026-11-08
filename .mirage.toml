@@ -5,11 +5,3 @@ undefined = "strict"
 [[candidate]]
 path = "config/profile.toml"
 policy = "override"
-
-[[candidate]]
-path = "config/signal.toml"
-policy = "override"
-
-[[candidate]]
-path = "config/writing.toml"
-policy = "override"

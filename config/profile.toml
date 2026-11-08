@@ -1,24 +1,4 @@
 [default.profile]
-primary = "Software."
-secondary = "Close to the metal."
-description = "Writing on systems engineering, language design, and security."
+handle = "wafkse"
+description = "I build systems software, mostly in Rust."
 website = "https://wafkse.dev"
-articles = "https://wafkse.dev/blog/"
-about = "https://wafkse.dev/about/"
-feed = "https://wafkse.dev/atom.xml"
-
-[default.palette.mocha]
-base = "#1e1e2e"
-panel = "#181825"
-text = "#cdd6f4"
-subtext = "#a6adc8"
-surface = "#45475a"
-accent = "#cba6f7"
-
-[default.palette.latte]
-base = "#eff1f5"
-panel = "#e6e9ef"
-text = "#4c4f69"
-subtext = "#6c6f85"
-surface = "#bcc0cc"
-accent = "#8839ef"
