@@ -1,0 +1,56 @@
+"""Offline tests for stable SVG text outlines."""
+
+from pathlib import Path
+import sys
+import unittest
+import xml.etree.ElementTree as ET
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tool"))
+
+from font import outline_svg, text_outline
+
+
+class Glyph:
+    def draw(self, pen):
+        pen.moveTo((0, 0))
+        pen.lineTo((400, 0))
+        pen.lineTo((400, 500))
+        pen.closePath()
+
+
+class Font:
+    def __init__(self):
+        self._head = type("Head", (), {"unitsPerEm": 1000})()
+        self._hmtx = type("Hmtx", (), {"metrics": {"a": (600, 0)}})()
+
+    def getGlyphSet(self):
+        return {"a": Glyph()}
+
+    def getBestCmap(self):
+        return {ord("a"): "a"}
+
+    def __getitem__(self, key):
+        return {"head": self._head, "hmtx": self._hmtx}[key]
+
+
+class SvgFontTest(unittest.TestCase):
+    def test_outline_preserves_position_and_alignment(self):
+        source = b'<svg xmlns="http://www.w3.org/2000/svg"><title>test</title><text x="100" y="40" font-size="20" text-anchor="end" fill="#fff">aa</text></svg>'
+        result = outline_svg(source, Font(), Font())
+
+        root = ET.fromstring(result)
+        path = root.find(".//{http://www.w3.org/2000/svg}path")
+
+        self.assertIsNotNone(path)
+        self.assertEqual(path.get("transform"), "translate(-1200 0)")
+        self.assertIn(b"<title>test</title>", result)
+        self.assertNotIn(b"<text ", result)
+        self.assertIn(b'fill="#fff"', result)
+
+    def test_missing_glyph_is_rejected(self):
+        with self.assertRaises(ValueError):
+            text_outline("b", Font())
+
+
+if __name__ == "__main__":
+    unittest.main()

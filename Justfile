@@ -10,6 +10,7 @@ install-mirage:
 # Generate all SVG outputs using Mirage.
 build:
     mirage --oneshot --configure .
+    uv run python tool/font.py
 
 # Exercise API discovery, aggregation, and serialization without network access.
 test:

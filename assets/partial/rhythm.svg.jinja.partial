@@ -3,10 +3,10 @@
 <desc id="desc">Authored commits by weekday and UTC hour over the last 90 days. {{ metric["commit-count"] }} commits in {{ metric["repository-count"] }} public repositories.</desc>
 <rect x=".5" y=".5" width="959" height="317" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
 <path d="M4 5V313" stroke="{{ color.accent }}" stroke-width="4"/>
-<text x="30" y="37" font-family="monospace" font-size="17" fill="{{ color.text }}">Commit rhythm</text>
-<text x="926" y="36" text-anchor="end" font-family="monospace" font-size="12" fill="{{ color.muted }}">UTC / 90 days</text>
+<text x="30" y="37" font-family="JetBrains Mono, monospace" font-size="17" fill="{{ color.text }}">Commit rhythm</text>
+<text x="926" y="36" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="{{ color.muted }}">UTC / 90 days</text>
 {% for day in ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"] %}
-<text x="31" y="{{ 85 + loop.index0 * 29 }}" font-family="monospace" font-size="13" fill="{{ color.muted }}">{{ day }}</text>
+<text x="31" y="{{ 85 + loop.index0 * 29 }}" font-family="JetBrains Mono, monospace" font-size="13" fill="{{ color.muted }}">{{ day }}</text>
 {% endfor %}
 {% set alpha = [0.20, 0.40, 0.60, 0.80, 1] %}
 {% for row in metric.hour %}
@@ -16,7 +16,7 @@
 {% endfor %}
 {% endfor %}
 {% for hour in [0, 6, 12, 18, 23] %}
-<text x="{{ 185 + hour * 29 }}" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="{{ color.muted }}">{{ "%02d"|format(hour) }}</text>
+<text x="{{ 185 + hour * 29 }}" y="300" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="{{ color.muted }}">{{ "%02d"|format(hour) }}</text>
 {% endfor %}
-<text x="31" y="300" font-family="monospace" font-size="12" fill="{{ color.muted }}">{{ metric["commit-count"] }} commits</text>
+<text x="31" y="300" font-family="JetBrains Mono, monospace" font-size="12" fill="{{ color.muted }}">{{ metric["commit-count"] }} commits</text>
 </svg>

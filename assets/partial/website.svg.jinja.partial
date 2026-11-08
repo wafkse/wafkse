@@ -2,7 +2,7 @@
   <title id="title">My Website: {{ profile.website }}</title>
   <rect x=".5" y=".5" width="959" height="91" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
   <path d="M4 5V87" stroke="{{ color.accent }}" stroke-width="4"/>
-  <text x="30" y="58" fill="{{ color.muted }}" font-family="ui-monospace, monospace" font-size="24">My Website:</text>
-  <text x="216" y="58" fill="{{ color.text }}" font-family="ui-monospace, monospace" font-size="24">{{ profile.website }}</text>
+  <text x="30" y="58" fill="{{ color.muted }}" font-family="JetBrains Mono, monospace" font-size="24">My Website:</text>
+  <text x="216" y="58" fill="{{ color.text }}" font-family="JetBrains Mono, monospace" font-size="24">{{ profile.website }}</text>
   <path d="M893 62L932 23M907 23H932V48" fill="none" stroke="{{ color.accent }}" stroke-width="3" stroke-linecap="square"/>
 </svg>
