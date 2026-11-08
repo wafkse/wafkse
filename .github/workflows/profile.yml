@@ -28,10 +28,10 @@ jobs:
         id: mirage
         with:
           path: ~/.cargo/bin/mirage
-          key: ${{ runner.os }}-mirage-a6b7d7cecbebe229803fd181ea612f7f8e19968b
-      - name: Install pinned Mirage
+          key: ${{ runner.os }}-mirage-${{ hashFiles('.mirage-version') }}
+      - name: Install Mirage release
         if: steps.mirage.outputs.cache-hit != 'true'
-        run: cargo install --locked --git https://github.com/wafkse/mirage --rev a6b7d7cecbebe229803fd181ea612f7f8e19968b mirage
+        run: just install-mirage
       - name: Test and update widgets
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
