@@ -9,8 +9,8 @@
 </picture>
 
 <p align="center">
-  <img align="left" src="./assets/meiling.gif" height="340" alt="Hong Meiling pixel-art animation">
-  <img src="https://count.getloli.com/@wafkse.github?name=wafkse.github&amp;theme=rule34&amp;padding=7&amp;offset=0&amp;align=center&amp;scale=1&amp;pixelated=1&amp;darkmode=auto" height="54" alt="Profile visit counter">
-  <img align="right" src="./assets/aya.gif" height="340" alt="Aya Shameimaru pixel-art animation">
+  <img align="left" src="./assets/meiling.gif" width="310" alt="Hong Meiling pixel-art animation">
+  <img src="https://count.getloli.com/@wafkse.github?name=wafkse.github&amp;theme=rule34&amp;padding=7&amp;offset=0&amp;align=center&amp;scale=3&amp;pixelated=1&amp;darkmode=auto" width="350" alt="Profile visit counter">
+  <img align="right" src="./assets/aya.gif" width="310" alt="Aya Shameimaru pixel-art animation">
   <br clear="all">
 </p>
