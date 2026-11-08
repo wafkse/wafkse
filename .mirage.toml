@@ -7,5 +7,5 @@ path = "config/palette.toml"
 policy = "override"
 
 [[candidate]]
-path = "config/metrics.toml"
+path = "config/metric.toml"
 policy = "override"
