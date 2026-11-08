@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="176" viewBox="0 0 960 176" role="img" aria-labelledby="title desc">
 <title id="title">Source footprint</title>
-<desc id="desc">Relative language byte counts reported by the GitHub API across 8 public repositories.</desc>
+<desc id="desc">Relative source-language byte counts across 8 public repositories.</desc>
 <rect x=".5" y=".5" width="959" height="175" rx="4" fill="#181825" stroke="#45475a" stroke-opacity=".55"/>
 <path d="M4 5V171" stroke="#cba6f7" stroke-width="4"/>
 <text x="30" y="36" font-family="monospace" font-size="17" fill="#cdd6f4">Source footprint</text>
-<text x="928" y="36" text-anchor="end" font-family="monospace" font-size="12" fill="#a6adc8">8 public repos / GitHub Linguist</text>
+<text x="928" y="36" text-anchor="end" font-family="monospace" font-size="12" fill="#a6adc8">8 public repos / source bytes</text>
 <rect x="30" y="68" width="900" height="27" rx="2" fill="#45475a" opacity=".45"/>
 <rect x="30" y="68" width="822" height="27" fill="#fab387"/>
 <rect x="852" y="68" width="74" height="27" fill="#94e2d5"/>

@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="176" viewBox="0 0 960 176" role="img" aria-labelledby="title desc">
 <title id="title">Source footprint</title>
-<desc id="desc">Relative language byte counts reported by the GitHub API across {{ metric.repository_count }} public repositories.</desc>
+<desc id="desc">Relative source-language byte counts across {{ metric.repository_count }} public repositories.</desc>
 <rect x=".5" y=".5" width="959" height="175" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
 <path d="M4 5V171" stroke="{{ color.accent }}" stroke-width="4"/>
 <text x="30" y="36" font-family="monospace" font-size="17" fill="{{ color.text }}">Source footprint</text>
-<text x="928" y="36" text-anchor="end" font-family="monospace" font-size="12" fill="{{ color.muted }}">{{ metric.repository_count }} public repos / GitHub Linguist</text>
+<text x="928" y="36" text-anchor="end" font-family="monospace" font-size="12" fill="{{ color.muted }}">{{ metric.repository_count }} public repos / source bytes</text>
 <rect x="30" y="68" width="900" height="27" rx="2" fill="{{ color.surface }}" opacity=".45"/>
 {% for part in metric.language %}
 <rect x="{{ part.x }}" y="68" width="{{ part.width }}" height="27" fill="{{ color.tone[part.color_index] }}"/>
