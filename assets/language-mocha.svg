@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" role="img" aria-labelledby="title description">
-<title id="title">Known languages</title>
+<title id="title">Known Languages</title>
 <desc id="description">Rust, C, C++, Lua, TypeScript, Python, Bash, JavaScript, Java, C sharp, and PHP.</desc>
 <rect x=".5" y=".5" width="959" height="239" rx="4" fill="#181825" stroke="#45475a" stroke-opacity=".55" />
 <path d="M4 5V235" stroke="#cba6f7" stroke-width="4" />

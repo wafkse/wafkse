@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="318" viewBox="0 0 960 318" role="img" aria-labelledby="title desc">
-<title id="title">Commit rhythm</title>
+<title id="title">Commit Rhythm</title>
 <desc id="desc">Authored commits by weekday and UTC hour over the last 90 days. 561 commits in 11 public repositories.</desc>
 <rect x=".5" y=".5" width="959" height="317" rx="4" fill="#181825" stroke="#45475a" stroke-opacity=".55" />
 <path d="M4 5V313" stroke="#cba6f7" stroke-width="4" />
