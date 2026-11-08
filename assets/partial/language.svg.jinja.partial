@@ -2,7 +2,7 @@
 {% set rows = ((profile["known-language"] | length) + columns - 1) // columns %}
 {% set height = 68 + rows * 86 %}
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="{{ height }}" viewBox="0 0 960 {{ height }}" role="img" aria-labelledby="title description">
-<title id="title">Known languages</title>
+<title id="title">Known Languages</title>
 <desc id="description">Rust, C, C++, Lua, TypeScript, Python, Bash, JavaScript, Java, C sharp, and PHP.</desc>
 <rect x=".5" y=".5" width="959" height="{{ height - 1 }}" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
 <path d="M4 5V{{ height - 5 }}" stroke="{{ color.accent }}" stroke-width="4"/>
