@@ -1,0 +1,26 @@
+[default.profile]
+handle = "wafkse"
+headline = "Software, close to the metal."
+discipline = "SYSTEMS  /  RUST  /  LINUX  /  TOOLING"
+website = "https://wafkse.dev"
+rss = "https://wafkse.dev/atom.xml"
+
+[default.theme.dark]
+base = "#15131c"
+surface = "#211c2b"
+border = "#51445f"
+ink = "#efe7f6"
+muted = "#b4a8c2"
+accent = "#c4a1e7"
+secondary = "#93c9bb"
+grid = "#342c40"
+
+[default.theme.light]
+base = "#f4eff6"
+surface = "#ece3f0"
+border = "#b8a9bf"
+ink = "#31283b"
+muted = "#655872"
+accent = "#79569f"
+secondary = "#3b8274"
+grid = "#dcd0e2"

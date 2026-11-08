@@ -1,0 +1,25 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
+  <img src="./assets/banner-light.svg" width="100%" alt="wafkse — Software, close to the metal.">
+</picture>
+
+<p align="center">
+  <a href="https://wafkse.dev">website</a> ·
+  <a href="https://github.com/wafkse?tab=repositories">repositories</a> ·
+  <a href="https://wafkse.dev/atom.xml">writing / atom</a>
+</p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/signal-dark.svg">
+  <img src="./assets/signal-light.svg" width="100%" alt="GitHub contribution signal for the past 52 weeks">
+</picture>
+
+
+
+<details>
+  <summary>How this page is made</summary>
+
+  The README and SVGs are rendered from TOML and MiniJinja templates with [Mirage](https://github.com/wafkse/mirage). A small Python collector produces the public activity signal and pulls writing from the Atom feed. [Just](./Justfile) runs local builds; [GitHub Actions](./.github/workflows/profile.yml) verifies reproducibility and refreshes the published result. No external image services or JavaScript.
+
+  [Templates](./README.md.jinja) · [Data](./config/) · [Generator](./tool/snapshot.py)
+</details>

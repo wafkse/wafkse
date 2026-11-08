@@ -1,0 +1,4 @@
+# Mirage's templates and their outputs are intentionally versioned.
+__pycache__/
+*.pyc
+.DS_Store

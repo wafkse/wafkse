@@ -1,0 +1,5 @@
+[default.signal]
+total_label = "—"
+range_label = "AWAITING FIRST SYNC"
+points = ""
+area = ""
