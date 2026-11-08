@@ -1,14 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="184" viewBox="0 0 960 184" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="156" viewBox="0 0 960 156" role="img" aria-labelledby="title description">
 <title id="title">Known languages</title>
-<desc id="description">A curated selection of languages used in my work.</desc>
-<rect x=".5" y=".5" width="959" height="183" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
-<path d="M4 5V179" stroke="{{ color.accent }}" stroke-width="4"/>
+<desc id="description">Language marks for Rust, C, C++, Lua / Luau, TypeScript, and Python.</desc>
+<rect x=".5" y=".5" width="959" height="155" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
+<path d="M4 5V151" stroke="{{ color.accent }}" stroke-width="4"/>
 <text x="30" y="36" font-family="JetBrains Mono, monospace" font-size="17" fill="{{ color.text }}">Known languages</text>
-<text x="928" y="36" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="end" fill="{{ color.muted }}">curated</text>
 {% for item in profile["known-language"] %}
 {% set x = 30 + loop.index0 * 152 %}
-<rect x="{{ x }}" y="62" width="138" height="92" rx="4" fill="{{ color.background }}" stroke="{{ color.surface }}" stroke-opacity=".65"/>
-<text x="{{ x + 16 }}" y="102" font-family="JetBrains Mono, monospace" font-size="26" font-weight="600" fill="{{ color.tone[loop.index0] }}">{{ item.label|e }}</text>
-<text x="{{ x + 16 }}" y="137" font-family="JetBrains Mono, monospace" font-size="15" fill="{{ color.text }}">{{ item.name|e }}</text>
+<rect x="{{ x }}" y="58" width="138" height="72" rx="4" fill="{{ color.background }}" stroke="{{ color.surface }}" stroke-opacity=".65"/>
+<text x="{{ x + 69 }}" y="104" font-family="JetBrains Mono, monospace" font-size="30" text-anchor="middle" font-weight="600" fill="{{ color.tone[loop.index0] }}">{{ item.label|e }}</text>
 {% endfor %}
 </svg>
