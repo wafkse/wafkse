@@ -2,7 +2,7 @@
   <a href="https://wafkse.dev">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/website-mocha.svg">
-      <img src="./assets/website-latte.svg" width="340" alt="wafkse.dev">
+      <img src="./assets/website-latte.svg" width="100%" alt="My Website: wafkse.dev">
     </picture>
   </a>
 </p>

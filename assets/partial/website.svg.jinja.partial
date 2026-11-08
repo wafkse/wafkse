@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="340" height="68" viewBox="0 0 340 68" role="img" aria-labelledby="title">
-  <title id="title">{{ profile.website }}</title>
-  <rect x=".5" y=".5" width="339" height="67" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
-  <path d="M3 5V63" stroke="{{ color.accent }}" stroke-width="4"/>
-  <text x="22" y="43" fill="{{ color.text }}" font-family="ui-monospace, monospace" font-size="23" font-weight="500">{{ profile.website }}</text>
-  <path d="M293 45L318 20M302 20H318V36" fill="none" stroke="{{ color.accent }}" stroke-width="2.5" stroke-linecap="square"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="92" viewBox="0 0 960 92" role="img" aria-labelledby="title">
+  <title id="title">My Website: {{ profile.website }}</title>
+  <rect x=".5" y=".5" width="959" height="91" rx="4" fill="{{ color.panel }}" stroke="{{ color.surface }}" stroke-opacity=".55"/>
+  <path d="M4 5V87" stroke="{{ color.accent }}" stroke-width="4"/>
+  <text x="30" y="58" fill="{{ color.muted }}" font-family="ui-monospace, monospace" font-size="24">My Website:</text>
+  <text x="216" y="58" fill="{{ color.text }}" font-family="ui-monospace, monospace" font-size="24">{{ profile.website }}</text>
+  <path d="M893 62L932 23M907 23H932V48" fill="none" stroke="{{ color.accent }}" stroke-width="3" stroke-linecap="square"/>
 </svg>
