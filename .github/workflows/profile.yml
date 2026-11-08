@@ -16,19 +16,19 @@ concurrency:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
         with:
           enable-cache: true
           python-version: '3.12'
-      - uses: extractions/setup-just@v3
-      - uses: actions/cache@v4
+      - uses: extractions/setup-just@v4
+      - uses: actions/cache@v6
         id: mirage
         with:
           path: ~/.cargo/bin/mirage
-          key: ${{ runner.os }}-mirage-${{ hashFiles('.mirage.tag') }}
+          key: ${{ runner.os }}-ubuntu-26.04-mirage-${{ hashFiles('.mirage.tag') }}
       - name: Install Mirage release
         if: steps.mirage.outputs.cache-hit != 'true'
         run: just install-mirage
