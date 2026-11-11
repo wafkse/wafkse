@@ -40,6 +40,7 @@ class MetricTest(unittest.TestCase):
             repository_count=1,
             hour=[[0] * 24 for _ in range(7)],
         )
+
         target_document = tomlkit.parse(serialize_metric(target_metric))
         content = target_document["default"]["metric"].unwrap()
         self.assertEqual(content["commit-count"], 2)

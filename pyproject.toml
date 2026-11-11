@@ -10,7 +10,16 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = []
+dev = ["pytest"]
 
 [tool.uv]
 package = false
+
+[tool.pytest.ini_options]
+python_files = [
+    "test_*.py",
+    "test-*.py",
+    "*_test.py",
+    "*-test.py",
+]
+addopts = ["--import-mode=importlib"]

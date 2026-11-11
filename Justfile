@@ -14,7 +14,7 @@ build:
 
 # Exercise API discovery, aggregation, and serialization without network access.
 test:
-    uv run python -m unittest discover -s tests -v
+    uv run pytest
 
 # Verify committed rendered outputs.
 check: test build
