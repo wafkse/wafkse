@@ -1,0 +1,5 @@
+* text=auto eol=lf
+
+# Avoid python scripts being tracked by GitHub Linguist.
+tool/** linguist-detectable=false
+tests/** linguist-detectable=false

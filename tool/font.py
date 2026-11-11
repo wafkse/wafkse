@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render Mirage SVG text as JetBrains Mono outlines for GitHub's image proxy.
 
-Fonts are cached locally; only the resulting SVG outlines are published.
+Fonts are cached locally, as only the resulting SVG outlines are published.
 """
 
 from __future__ import annotations

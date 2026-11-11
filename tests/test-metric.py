@@ -1,4 +1,4 @@
-"""Offline coverage of the GitHub API → typed TOML → Mirage boundary."""
+"""Offline coverage of the GitHub API -> typed TOML -> Mirage boundary."""
 
 from __future__ import annotations
 
